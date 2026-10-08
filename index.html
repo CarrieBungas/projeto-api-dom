@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de CEP e Mini Pokédex</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 24px;
+            border-radius: 12px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        dd {
+            margin-left: 0;
+        }
+
+        .status {
+            min-height: 24px;
+        }
+
+        .pokemon-img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Buscador de CEP e Mini Pokédex</h1>
+        <p>Um projeto para praticar JavaScript, APIs e manipulação do DOM.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. Buscador de CEP</h2>
+            <form id="cep-form">
+                <input
+                    id="cep-input"
+                    type="text"
+                    placeholder="Digite o CEP"
+                    maxlength="9"
+                    autocomplete="postal-code"
+                    aria-label="CEP"
+                    required
+                >
+                <button type="submit" id="cep-button">Buscar CEP</button>
+            </form>
+
+            <p id="cep-status" class="status" role="status" aria-live="polite"></p>
+            <dl id="cep-result"></dl>
+
+            <h3>Histórico de pesquisas</h3>
+            <ul id="cep-history"></ul>
+        </section>
+
+        <section>
+            <h2>2. Mini Pokédex</h2>
+            <form id="pokemon-form">
+                <input
+                    id="pokemon-input"
+                    type="text"
+                    placeholder="Nome do Pokémon"
+                    aria-label="Nome do Pokémon"
+                    required
+                >
+                <button type="submit" id="pokemon-button">Buscar Pokémon</button>
+            </form>
+
+            <p id="pokemon-status" class="status" role="status" aria-live="polite"></p>
+            <div id="pokemon-result"></div>
+        </section>
+
+        <section>
+            <h2>3. Exercício de pedidos</h2>
+            <p id="orders-total"></p>
+            <ul id="orders-list"></ul>
+        </section>
+    </main>
+</body>
+</html>
